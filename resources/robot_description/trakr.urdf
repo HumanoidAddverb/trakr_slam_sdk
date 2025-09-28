@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="trakr">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00247 0.02447 0.05839"
+        rpy="0 0 0" />
+      <mass
+        value="7.184" />
+      <inertia
+        ixx="0.110793155"
+        ixy="0.000938102"
+        ixz="-0.000196226"
+        iyy="0.032679868"
+        iyz="-0.000283807"
+        izz="0.129555733" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.00247 0.02447 0.05839"
+        rpy="0 0 0" />
+      <geometry>
+                      <!-- <cylinder length="0.02" radius="0.1"/> -->
+
+        <mesh
+          filename="../meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.00247 0.02447 0.05839"
+        rpy="0 0 0" />
+      <geometry>
+                            <cylinder length="0.02" radius="0.1"/>
+
+
+        <!-- <mesh
+          filename="../meshes/base_link.STL" /> -->
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="LF_hip">
+    <inertial>
+      <origin
+        xyz="-0.0041 0.000097278 0.05222"
+        rpy="0 0 0" />
+      <mass
+        value="0.777" />
+      <inertia
+        ixx="0.000949959"
+        ixy="-0.000001573"
+        ixz="-0.000001354"
+        iyy="0.000624832"
+        iyz="0.000000554"
+        izz="0.000504923" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_adduction"
+    type="revolute">
+    <origin
+      xyz="-0.055 0.159 0.057"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="LF_hip" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.785"
+      upper="0.785"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+     <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="LF_thigh">
+    <inertial>
+      <origin
+        xyz="0.02073 0.00247 -0.02131"
+        rpy="0 0 0" />
+      <mass
+        value="1.323" />
+      <inertia
+        ixx="0.001400657"
+        ixy="0.000268728"
+        ixz="0.000637492"
+        iyy="0.004558162"
+        iyz="0.000073125"
+        izz="0.004609863" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_hip"
+    type="revolute">
+    <origin
+      xyz="0.0864 -4.2027E-05 0.056486"
+      rpy="-1.5708 0.60656 -1.5708" />
+    <parent
+      link="LF_hip" />
+    <child
+      link="LF_thigh" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.872"
+      upper="1.300"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="LF_shank">
+    <inertial>
+      <origin
+        xyz="0.10697 -0.010281 8.194E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.18713" />
+      <inertia
+        ixx="0.000033077"
+        ixy="-0.000087278"
+        ixz="0.000000966"
+        iyy="0.001166162"
+        iyz="-0.000000094"
+        izz="0.001184502" />
+    </inertial>
+    <visual>
+            <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.10697 -0.010281 8.194E-05"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.04"/>
+
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_knee"
+    type="revolute">
+    <origin
+      xyz="0.19996 0 0"
+      rpy="0 0 -1.2685" />
+    <parent
+      link="LF_thigh" />
+    <child
+      link="LF_shank" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.130"
+      upper="1.400"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+     <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="LF_toe">
+    <inertial>
+      <origin
+        xyz="0.000 0.0070193 0.012316"
+        rpy="0 0 0" />
+      <mass
+        value="0.040" />
+      <inertia
+        ixx="0.000008450"
+        ixy="-0.000000003"
+        ixz="0.000000001"
+        iyy="0.000008000"
+        iyz="-0.000001783"
+        izz="0.000010113" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_toe.STL" />
+          <!-- <sphere radius="0.01" /> -->
+
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LF_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_toe"
+    type="fixed">
+    <origin
+      xyz="0.20917 0 0"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="LF_shank" />
+    <child
+      link="LF_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RF_hip">
+    <inertial>
+      <origin
+        xyz="0.00431 -0.000087642 -0.05218"
+        rpy="0 0 0" />
+      <mass
+        value="0.777" />
+      <inertia
+        ixx="0.000949712"
+        ixy="-0.000001379"
+        ixz="-0.000000716"
+        iyy="0.000624026"
+        iyz="0.000001147"
+        izz="0.000505482" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_adduction"
+    type="revolute">
+    <origin
+      xyz="0.055 0.159 0.057"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="RF_hip" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.785"
+      upper="0.785"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="RF_thigh">
+    <inertial>
+      <origin
+        xyz="0.02085 0.00250 0.02273"
+        rpy="0 0 0" />
+      <mass
+        value="1.324" />
+      <inertia
+        ixx="0.001323080"
+        ixy="0.000273510"
+        ixz="-0.000568178"
+        iyy="0.004481469"
+        iyz="-0.000062986"
+        izz="0.004611543" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_hip"
+    type="revolute">
+    <origin
+      xyz="-0.085459 0 -0.057131"
+      rpy="1.5698 -0.60656 1.5726" />
+    <parent
+      link="RF_hip" />
+    <child
+      link="RF_thigh" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.872"
+      upper="1.300"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="RF_shank">
+    <inertial>
+      <origin
+        xyz="0.10665 -0.0097186 -0.00085378"
+        rpy="0 0 0" />
+      <mass
+        value="0.18713" />
+      <inertia
+        ixx="0.000033081"
+        ixy="-0.000087278"
+        ixz="-0.000002281"
+        iyy="0.001166134"
+        iyz="0.000000193"
+        izz="0.001184472" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.10665 -0.0097186 -0.00085378"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh
+          filename="../meshes/RF_shank.STL" /> -->
+                  <sphere radius="0.04"/>
+
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_knee"
+    type="revolute">
+    <origin
+      xyz="0.19996 0 0"
+      rpy="0 0 -1.2685" />
+    <parent
+      link="RF_thigh" />
+    <child
+      link="RF_shank" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.130"
+      upper="1.400"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="RF_toe">
+     <inertial>
+      <origin
+        xyz="0.0001 -0.005968 -0.0090302"
+        rpy="0 0 0" />
+      <mass
+        value="0.040" />
+      <inertia
+        ixx="0.000008450"
+        ixy="-0.9E-10"
+        ixz="0.6E-11"
+        iyy="0.000008244"
+        iyz="-0.000001906"
+        izz="0.000009869" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RF_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_toe"
+    type="fixed">
+    <origin
+      xyz="0.20885 0.00056281 -0.00098851"
+      rpy="0 1.5697 -3.1416" />
+    <parent
+      link="RF_shank" />
+    <child
+      link="RF_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="LB_hip">
+    <inertial>
+      <origin
+        xyz="-0.00431 0.00007 -0.05216"
+        rpy="0 0 0" />
+      <mass
+        value="0.777" />
+      <inertia
+        ixx="0.000949573"
+        ixy="-0.000001109"
+        ixz="0.000000365"
+        iyy="0.000623288"
+        iyz="-0.000001231"
+        izz="0.000506082" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_adduction"
+    type="revolute">
+    <origin
+      xyz="-0.055 -0.159 0.057"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="LB_hip" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.785"
+      upper="0.785"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="LB_thigh">
+    <inertial>
+      <origin
+        xyz="0.02078 0.00242 -0.02131"
+        rpy="0 0 0" />
+      <mass
+        value="1.323" />
+      <inertia
+        ixx="0.001398049"
+        ixy="0.000268412"
+        ixz="0.000637446"
+        iyy="0.004560367"
+        iyz="0.000074807"
+        izz="0.004609460" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_hip"
+    type="revolute">
+    <origin
+      xyz="0.0864 0 -0.0565"
+      rpy="-1.5708 0.6065 -1.5708" />
+    <parent
+      link="LB_hip" />
+    <child
+      link="LB_thigh" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.872"
+      upper="1.300"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="LB_shank">
+    <inertial>
+      <origin
+        xyz="0.10697 -0.010281 0.00018194"
+        rpy="0 0 0" />
+      <mass
+        value="0.18715" />
+      <inertia
+        ixx="0.000033077"
+        ixy="-0.000087278"
+        ixz="0.000000966"
+        iyy="0.001166162"
+        iyz="-0.000000094"
+        izz="0.001184502" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz=".10697 -0.010281 0.00018194"
+        rpy="0 0 0" />
+      <geometry>
+              <sphere radius="0.04"/>
+
+        <!-- <mesh
+          filename="../meshes/LB_shank.STL" /> -->
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_knee"
+    type="revolute">
+    <origin
+      xyz="0.2 0 0"
+      rpy="0 0 -1.2685" />
+    <parent
+      link="LB_thigh" />
+    <child
+      link="LB_shank" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.130"
+      upper="1.400"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="LB_toe">
+    <inertial>
+      <origin
+        xyz="0.000 0.0070193 0.012316"
+        rpy="0 0 0" />
+      <mass
+        value="0.040" />
+      <inertia
+        ixx="0.000008450"
+        ixy="-0.000000003"
+        ixz="0.000000001"
+        iyy="0.000008000"
+        iyz="-0.000001783"
+        izz="0.000010113" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/LB_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LB_toe"
+    type="fixed">
+    <origin
+      xyz="0.20917 0 0.0001"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="LB_shank" />
+    <child
+      link="LB_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RB_hip">
+    <inertial>
+      <origin
+        xyz="0.00431 -0.00006 0.05216"
+        rpy="0 0 0" />
+      <mass
+        value="0.777" />
+      <inertia
+        ixx="0.000949579"
+        ixy="-0.000001128"
+        ixz="0.000000387"
+        iyy="0.000623421"
+        iyz="-0.000001420"
+        izz="0.000505954" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_adduction"
+    type="revolute">
+    <origin
+      xyz="0.055 -0.159 0.057"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="RB_hip" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.785"
+      upper="0.785"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="RB_thigh">
+    <inertial>
+      <origin
+        xyz="0.02089 0.00249 0.02273"
+        rpy="0 0 0" />
+      <mass
+        value="1.324" />
+      <inertia
+        ixx="0.001323199"
+        ixy="0.000273373"
+        ixz="-0.000568211"
+        iyy="0.004481335"
+        iyz="-0.000062906"
+        izz="0.004611528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_hip"
+    type="revolute">
+    <origin
+      xyz="-0.086446 -5.0614E-05 0.055852"
+      rpy="1.5698 -0.6065 1.5726" />
+    <parent
+      link="RB_hip" />
+    <child
+      link="RB_thigh" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.872"
+      upper="1.300"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="RB_shank">
+    <inertial>
+      <origin
+        xyz="0.10665 -0.0097186 -0.00085378"
+        rpy="0 0 0" />
+      <mass
+        value="0.18713" />
+      <inertia
+        ixx="0.000033081"
+        ixy="-0.000087278"
+        ixz="-0.000002281"
+        iyy="0.001166134"
+        iyz="0.000000193"
+        izz="0.001184472" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.10665 -0.0097186 -0.00085378"
+        rpy="0 0 0" />
+      <geometry>
+                    <sphere radius="0.04"/>
+
+        <!-- <mesh
+          filename="../meshes/RB_shank.STL" /> -->
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_knee"
+    type="revolute">
+    <origin
+      xyz="0.2 0 0"
+      rpy="0 0 -1.2685" />
+    <parent
+      link="RB_thigh" />
+    <child
+      link="RB_shank" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.130"
+      upper="1.400"/>
+    <effort
+      lower="-30"
+      upper="30"/>
+      <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="RB_toe">
+     <inertial>
+      <origin
+        xyz="0.0001 -0.005968 -0.0090302"
+        rpy="0 0 0" />
+      <mass
+        value="0.040" />
+      <inertia
+        ixx="0.000008450"
+        ixy="-0.9E-10"
+        ixz="0.6E-11"
+        iyy="0.000008244"
+        iyz="-0.000001906"
+        izz="0.000009869" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RB_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RB_toe"
+    type="fixed">
+    <origin
+      xyz="0.20885 0.00056478 0"
+      rpy="0 1.5697 -3.1416" />
+    <parent
+      link="RB_shank" />
+    <child
+      link="RB_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
