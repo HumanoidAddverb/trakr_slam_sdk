@@ -1,0 +1,45 @@
+action_scale: 0.2
+default_joint_pos: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+decimation: 10
+linear_vel_scale: 2.0
+angular_vel_scale: 0.25
+p_gain: 20
+d_gain: 0.5
+
+
+environment_usd_path: "/Isaac/Environments/Simple_Warehouse/full_warehouse.usd"
+# environment_usd_path: "/Isaac/Environments/Office/office.usd"
+trakr_usd_path: "/home/quad/isaacsim/isaac-sim-standalone@4.5.0-rc.36+release.19112.f59b3005.gl.linux-x86_64.release/trakr_simulator/resources/robot_description/trakr_imu.usd"
+# trakr_spawn_position: [2.0, 15.0, 0.25]
+trakr_spawn_position: [-7.0, 0.0, 0.25]
+# trakr_spawn_position: [-13.22921, 26.9129638671875, 0.2662559747695923]  # quaternion (x, y, z, w)
+trakr_spawn_orientation : [1.0, 0.0, 0.0, 0.0] 
+velocity_magnitude: 1.0
+physics_dt: 0.002
+render_dt: 0.01667  
+transfer: "tcp_ip"
+
+height: 480
+width: 640
+distortion_model: "rational_polynomial"
+D: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+K: [617.201, 0.0, 324.637, 0.0, 617.362, 242.462, 0.0, 0.0, 1.0]
+R: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+P: [617.201, 0.0, 324.637, 0.0, 0.0, 617.362, 242.462, 0.0, 0.0, 0.0, 1.0, 0.0]
+pixel_size: 1.4  # in microns, 3 microns is common
+f_stop: 1.8  # f-number, the ratio of the lens focal length to the diameter of the entrance pupil
+focus_distance: 0.5  # in meters, the distance from the camera to the object plane
+
+#transforms to sensors from the base_link
+
+#meters 
+translation_camera_body_left_cam: [0.0, 0.0, 0.0]
+translation_camera_body_right_cam: [0.0, 0.1, 0.0]
+translation_camera_body_imu: [0.0, 0.05, 0.0]
+translation_base_link_lidar: [0.0, 0, 0.1]
+
+#degrees
+rotation_camera_body_left_cam: [0.0, 0.0, 180.0]
+rotation_camera_body_right_cam: [0.0, 0.0, 180.0]
+rotation_camera_body_imu: [0.0, 0.0, 180.0]
+rotation_base_link_lidar: [0.0, 0.0, 180.0]

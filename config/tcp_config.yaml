@@ -1,0 +1,15 @@
+data_server:
+  ip: "127.0.0.1"
+  port: 12346
+  
+data_client:
+  server_ip: "127.0.0.1"
+  port: 12346
+
+teleop_server:
+  server_ip: "127.0.0.1"
+  port: 5000
+
+teleop_client:
+  server_ip: "127.0.0.2"
+  port: 5000  
